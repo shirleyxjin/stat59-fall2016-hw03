@@ -1,17 +1,47 @@
-advertising <- read.csv("http://www-bcf.usc.edu/%7Egareth/ISL/Advertising.csv")
-
+#Reading data
+advertising <- read.csv("../../data/Advertising.csv")
 advertising <- advertising[-1]
 
-regression <- lm(advertising$Sales ~ advertising$TV)
-sum_regression <- summary(regression)
-save(regression,sum_regression, file="../data/regression.RData")
+# Computing regression and saving regression statistics
+regTV <- lm(advertising$Sales ~ advertising$TV)
+sum_regTV <- summary(regTV)
 
-pdf(file = "../images/scatterplot-tv-sales.pdf")
-plot(advertising$TV, advertising$Sales, main="Histogram of TV Budgets",xlab="TV",ylab="Sales",pch=19,col="brown3",cex=0.8)
-abline(regression,col="dodgerblue4",lwd=3)
-dev.off
+regRadio <- lm(advertising$Sales ~ advertising$Radio)
+sum_regRadio <- summary(regRadio)
 
-png(filename = "../images/scatterplot-tv-sales.png")
+regNewspaper <- lm(advertising$Sales ~ advertising$Newspaper)
+sum_regNewspaper <- summary(regNewspaper)
+
+regression <- lm(Sales ~ TV + Radio + Newspaper, data = advertising)
+regressionstats <- summary(regression)
+
+save(regTV,sum_regTV,regRadio,sum_regRadio,regNewspaper,sum_regNewspaper,regression,regressionstats, file="../../data/regression.RData")
+
+# Scatterplot images
+png(filename = "../../images/scatterplot-tv-sales.png")
 plot(advertising$TV, advertising$Sales, main="Histogram of TV Budgets",xlab="TV",ylab="Sales",pch=19,col="brown3",cex=0.8)
-abline(regression,col="dodgerblue4",lwd=3)
-dev.off
+abline(regTV,col="dodgerblue4",lwd=3)
+dev.off()
+
+png(filename = "../../images/scatterplot-radio-sales.png")
+plot(advertising$Radio, advertising$Sales, main="Histogram of Radio Budgets",xlab="Radio",ylab="Sales",pch=19,col="brown3",cex=0.8)
+abline(regRadio,col="dodgerblue4",lwd=3)
+dev.off()
+
+png(filename = "../../images/scatterplot-newspaper-sales.png")
+plot(advertising$Newspaper, advertising$Sales, main="Histogram of Newspaper Budgets",xlab="TV",ylab="Sales",pch=19,col="brown3",cex=0.8)
+abline(regNewspaper,col="dodgerblue4",lwd=3)
+dev.off()
+
+# Diagnostics plot images
+png(filename = "../../images/residual-plot.png")
+plot(regression, which = 1, caption="Residual Plot")
+dev.off()
+
+png(filename = "../../images/scale-location-plot.png")
+plot(regression, which = 2, caption="Scale Location Plot")
+dev.off()
+
+png(filename = "../../images/normal-qq-plot.png")
+plot(regression, which = 3, caption="Normal QQ Plot")
+dev.off()
