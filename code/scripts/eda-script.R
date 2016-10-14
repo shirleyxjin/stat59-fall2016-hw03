@@ -45,5 +45,5 @@ dev.off()
 
 # Scatterplot image
 png(filename = "../../images/scatterplot-matrix.png")
-paris(advertising)
+pairs(advertising)
 dev.off()
