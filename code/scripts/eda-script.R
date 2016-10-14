@@ -15,7 +15,7 @@ cat("Summary statistics of Newspaper\n")
 summary(advertising$Newspaper)
 
 cat("Summary statistics of Sales\n")
-summary(advertising$sales)
+summary(advertising$Sales)
 
 cat("Matrix of correlations amongst variables\n")
 cor(advertising)
