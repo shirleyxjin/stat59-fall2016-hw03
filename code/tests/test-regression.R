@@ -1,7 +1,7 @@
 source("../functions/regression-functions.R")
 
 context("Test for residual sum of squares")
-test_that("residual_sum_squares function works as expected" {
+test_that("residual_sum_squares function works as expected", {
 	reg = lm(mpg ~ disp + hp, data = mtcars)
 	regsum = summary(reg)
 	
@@ -12,7 +12,7 @@ test_that("residual_sum_squares function works as expected" {
 })
 
 context("Test for total sum of squares")
-test_that("total_sum_squares function works as expected" {
+test_that("total_sum_squares function works as expected", {
 	reg = lm(mpg ~ disp + hp, data = mtcars)
 	regsum = summary(reg)
 	
@@ -23,7 +23,7 @@ test_that("total_sum_squares function works as expected" {
 })
 
 context("Test for R squared")
-test_that("r_squared function works as expected" {
+test_that("r_squared function works as expected", {
 	reg = lm(mpg ~ disp + hp, data = mtcars)
 	regsum = summary(reg)
 	
@@ -34,7 +34,7 @@ test_that("r_squared function works as expected" {
 })
 
 context("Test for F statistics")
-test_that("f_statistics function works as expected" {
+test_that("f_statistics function works as expected", {
 	reg = lm(mpg ~ disp + hp, data = mtcars)
 	regsum = summary(reg)
 	
@@ -45,7 +45,7 @@ test_that("f_statistics function works as expected" {
 })
 
 context("Test for RSE")
-test_that("residual_std_error function works as expected" {
+test_that("residual_std_error function works as expected", {
 	reg = lm(mpg ~ disp + hp, data = mtcars)
 	regsum = summary(reg)
 	
