@@ -13,10 +13,10 @@ tests: code/tests/test-regression.R
 	cd code/tests; Rscript -e “library(testthat);test_file(‘test-regression.R’)”
 
 # Running scripts
-eda: code/eda-script.R data/Advertising.csv
+eda: code/scripts/eda-script.R data/Advertising.csv
 	cd code/scripts; Rscript eda-script.R
 
-regression: code/regression-script.R data/Advertising.csv
+regression: code/scripts/regression-script.R data/Advertising.csv
 	cd code/scripts; Rscript regression-script.R
 
 session-info.txt: code/scripts/session-info-script.R
