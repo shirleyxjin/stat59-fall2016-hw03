@@ -33,7 +33,7 @@ We will fit a regression model via the least squares criterion.
 #Results
 First, we will compute the multiple linear regression coefficients. The results is listed in the table below:
 
-```{r,echo=FALSE}
+```{r,results = 'asis', echo=FALSE}
 library(xtable)
 load(file = "../data/regression.RData")
 print(xtable(summary(regTV),caption="Simple Linear Regression Coefficients - TV"))
@@ -47,7 +47,7 @@ However, This may be misleading. Simply fitting a separate linear regression mod
 
 Therefore, we are going to use the multiple linear regression method, and regress Sales on all three of the predictors TV, Radio and Newspaper. The coefficients for this model is listed below.
 
-```{r,echo=FALSE}
+```{r,results = 'asis', echo=FALSE}
 print(xtable(summary(regression),caption="Multiple Linear Regression Coefficients"))
 ```
 
@@ -55,7 +55,7 @@ Looking at this table, we can see that for a given amount of Radio and Newspaper
 
 Let's take a look at the correlation matrix of the predictor variables and the response variable displayed below.
 
-```{r,echo=FALSE}
+```{r,results = 'asis', echo=FALSE}
 load("../data/correlation-matrix.RData")
 print(xtable(corrmat, caption = "Correlation Matrix"))
 ```
@@ -68,7 +68,7 @@ We can also take a look at the pairs scatterplot of the predictor variables and 
 
 Now that we have determined the relationship of the sales with the three types of media through the multiple linear regression model, let's look at how well this regression model fits the data. We computed the Regression Quality Indices listed in the table below:
 
-```{r,echo=FALSE}
+```{r,results = 'asis', echo=FALSE}
 rqi <- data.frame(c("Residual standard errors","R2","F-stat"),c(summary(regression)$sigma,summary(regression)$r.squared,summary(regression)$fstatistic[1]))
 colnames(rqi)<- c("Quantity","Value")
 table_rqi <- xtable(rqi,caption = "Regression quality Indices")
