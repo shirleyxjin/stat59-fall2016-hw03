@@ -32,7 +32,8 @@ We will fit a regression model via the least squares criterion.
 
 #Results
 First, we will compute the multiple linear regression coefficients. The results is listed in the table below:
-```{r,results = 'asis', echo=FALSE}
+
+```{r echo=FALSE}
 library(xtable)
 load(file = "../data/regression.RData")
 print(xtable(summary(regTV),caption="Simple Linear Regression Coefficients - TV"))
@@ -44,13 +45,13 @@ From this table, we can see that the coefficient for the regression of number of
 However, This may be misleading. Simply fitting a separate linear regression model for each of the predictor ignores the possibility that some of the predictor variables may be correlated, and that would affect the accuracy of the model prediction.
 
 Therefore, we are going to use the multiple linear regression method, and regress Sales on all three of the predictors TV, Radio and Newspaper. The coefficients for this model is listed below.
-```{r,results = 'asis', echo=FALSE}
+```{r echo=FALSE}
 print(xtable(summary(regression),caption="Multiple Linear Regression Coefficients"))
 ```
 Looking at this table, we can see that for a given amount of Radio and Newspaper ad budgets, an increase in TV budget by $1,000 can yield an increase in sales by 46 units. Similarly, an increase in Radio budget will yield an increase in sales by 189 units. The t-statistics for TV and Radio predictors are both quite high. However, we can notice that the Newspaper budget predictor has close to 0 effect on sales, and the t-statistics is really low. This seems interesting as in the previous simple linear regression of sales on newspaper, we see a pretty significant effect. Let's see why this may be the case.
 
 Let's take a look at the correlation matrix of the predictor variables and the response variable displayed below.
-```{r,results = 'asis', echo=FALSE}
+```{r echo=FALSE}
 load("../data/correlation-matrix.RData")
 print(xtable(corrmat, caption = "Correlation Matrix"))
 ```
@@ -60,7 +61,7 @@ We can also take a look at the pairs scatterplot of the predictor variables and 
 ![Figure 1: Scatterplot Matrix](../images/scatterplot-matrix.png)
 
 Now that we have determined the relationship of the sales with the three types of media through the multiple linear regression model, let's look at how well this regression model fits the data. We computed the Regression Quality Indices listed in the table below:
-```{r,results = 'asis',echo=FALSE}
+```{r echo=FALSE}
 rqi <- data.frame(c("Residual standard errors","R2","F-stat"),c(summary(regression)$sigma,summary(regression)$r.squared,summary(regression)$fstatistic[1]))
 colnames(rqi)<- c("Quantity","Value")
 table_rqi <- xtable(rqi,caption = "Regression quality Indices")
