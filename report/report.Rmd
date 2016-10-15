@@ -36,9 +36,9 @@ First, we will compute the multiple linear regression coefficients. The results 
 ```{r,results = 'asis', echo=FALSE}
 library(xtable)
 load(file = "../data/regression.RData")
-print(xtable(summary(regTV),caption="Simple Linear Regression Coefficients - TV"))
-print(xtable(summary(regRadio),caption="Simple Linear Regression Coefficients - Radio"))
-print(xtable(summary(regNewspaper),caption="Simple Linear Regression Coefficients - Newspaper"))
+print(xtable(summary(regTV),caption="Simple Linear Regression Coefficients - TV"),comment=False)
+print(xtable(summary(regRadio),caption="Simple Linear Regression Coefficients - Radio"),comment=False)
+print(xtable(summary(regNewspaper),caption="Simple Linear Regression Coefficients - Newspaper"),comment=False)
 ```
 
 From this table, we can see that the coefficient for the regression of number of units sold on TV advertising budget indicates that an increase of $1,000 in the TV advertising budget will yield an increase in sales by 47.5 units. Similarly, an increase in Radio ad budget by $1,000 can increase sales by 203 units. An increase in Newspaper ad budget can increase sales by 55 units. The coefficients of $\beta_0$ and $\beta_1$ for each of the simple linear regression models are quite large relative to their standard errors, and their t-stats are also quite large. This seems to indicate that $\beta_0$ and $\beta_1$ are significant for each of the models, and that the null hypothesis that there's no relationship between the TV/Radio/Newspaper ad budget and number of units sold can be rejected.
@@ -48,7 +48,7 @@ However, This may be misleading. Simply fitting a separate linear regression mod
 Therefore, we are going to use the multiple linear regression method, and regress Sales on all three of the predictors TV, Radio and Newspaper. The coefficients for this model is listed below.
 
 ```{r,results = 'asis', echo=FALSE}
-print(xtable(summary(regression),caption="Multiple Linear Regression Coefficients"))
+print(xtable(summary(regression),caption="Multiple Linear Regression Coefficients"),comment=False)
 ```
 
 Looking at this table, we can see that for a given amount of Radio and Newspaper ad budgets, an increase in TV budget by $1,000 can yield an increase in sales by 46 units. Similarly, an increase in Radio budget will yield an increase in sales by 189 units. The t-statistics for TV and Radio predictors are both quite high. However, we can notice that the Newspaper budget predictor has close to 0 effect on sales, and the t-statistics is really low. This seems interesting as in the previous simple linear regression of sales on newspaper, we see a pretty significant effect. Let's see why this may be the case.
@@ -57,7 +57,7 @@ Let's take a look at the correlation matrix of the predictor variables and the r
 
 ```{r,results = 'asis', echo=FALSE}
 load("../data/correlation-matrix.RData")
-print(xtable(corrmat, caption = "Correlation Matrix"))
+print(xtable(corrmat, caption = "Correlation Matrix"),comment=False)
 ```
 
 We can see that correlation between radio and newspaper is 0.35. This means that spending on Newspaper is very likely accompanied by spending on Radio. This suggests that the relationship found in the simple linear regression of sales on newspaper may not be a direct effect of newspaper ad on sales, but an indirect effect of radio ad on sales.
