@@ -19,17 +19,17 @@ save(regTV,sum_regTV,regRadio,sum_regRadio,regNewspaper,sum_regNewspaper,regress
 
 # Scatterplot images
 png(filename = "../../images/scatterplot-tv-sales.png")
-plot(advertising$TV, advertising$Sales, main="Histogram of TV Budgets",xlab="TV",ylab="Sales",pch=19,col="brown3",cex=0.8)
+plot(advertising$TV, advertising$Sales, main="Scatterplot of TV Budgets",xlab="TV",ylab="Sales",pch=19,col="brown3",cex=0.8)
 abline(regTV,col="dodgerblue4",lwd=3)
 dev.off()
 
 png(filename = "../../images/scatterplot-radio-sales.png")
-plot(advertising$Radio, advertising$Sales, main="Histogram of Radio Budgets",xlab="Radio",ylab="Sales",pch=19,col="brown3",cex=0.8)
+plot(advertising$Radio, advertising$Sales, main="Scatterplot of Radio Budgets",xlab="Radio",ylab="Sales",pch=19,col="brown3",cex=0.8)
 abline(regRadio,col="dodgerblue4",lwd=3)
 dev.off()
 
 png(filename = "../../images/scatterplot-newspaper-sales.png")
-plot(advertising$Newspaper, advertising$Sales, main="Histogram of Newspaper Budgets",xlab="TV",ylab="Sales",pch=19,col="brown3",cex=0.8)
+plot(advertising$Newspaper, advertising$Sales, main="Scatterplot of Newspaper Budgets",xlab="TV",ylab="Sales",pch=19,col="brown3",cex=0.8)
 abline(regNewspaper,col="dodgerblue4",lwd=3)
 dev.off()
 
