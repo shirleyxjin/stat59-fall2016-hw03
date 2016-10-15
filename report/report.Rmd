@@ -16,13 +16,6 @@ The Advertising data set, downloaded from _**An Introduction to Statistical Lear
 #Methodology
 For this report, we will only be using both simple linear regression as well as multiple linear regression.
 
-### Simple Linear Regression
-We'll be looking at each media type from the data set. We will examine the relationship of **Sales** of this product with **TV**/**Radio**/**Newspaper** advertising budget. We will use a simple linear model:
-\begin{center}
- Sales  = $\beta_0$ + $\beta_1$ * TV/Radio/Newspaper
-\end{center}
-To estimate the coefficients $\beta_0$ and $\beta_1$, we will fit a regression model via the least squares criterion.
-
 ### Multiple Linear Regression
 We will be looking at all the media types collectively and fit a multiple linear regression on sales taking all of the predictors into consideration. We will use the following model:
 \begin{center}
